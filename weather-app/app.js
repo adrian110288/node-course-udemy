@@ -5,12 +5,15 @@ const address = process.argv[2]
 
 console.log(address)
 
-geocode(address, (error, location) => {
+geocode(address, (error, {
+    latitude,
+    longitude
+}) => {
 
     if (error) {
         console.log(error)
     } else {
-        forecast(location.latitude, location.longitude, (error, forecast) => {
+        forecast(latitude, longitude, (error, forecast) => {
 
             if (error) {
                 console.log(error)
