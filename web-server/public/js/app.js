@@ -10,17 +10,15 @@ form.addEventListener('submit', (e) => {
 
     const location = search.value
 
+    fetch('/weather?address=' + location).then((res) => {
+        res.json().then((data) => {
 
-
-    fetch('http://localhost:3000/weather?address=' + location).then((res) => {
-    res.json().then((data) => {
-
-        if(data.error) {
-            message1.textContent = data.error
-        } else {
-            message1.textContent = data.location
-            message2.textContent = data.forecast
-        }
+            if (data.error) {
+                message1.textContent = data.error
+            } else {
+                message1.textContent = data.location
+                message2.textContent = data.forecast
+            }
+        })
     })
-})
 })
