@@ -6,7 +6,7 @@ const userRouter = require('./routers/user')
 const taskRouter = require('./routers/task')
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT
 
 logger.token('body', function (req, res) {
     return JSON.stringify(req.body)
